@@ -3,3 +3,5 @@
 /vendor
 auth.json
 /.idea
+/LocalValetDriver.php
+/.valetphprc
