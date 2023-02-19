@@ -84,20 +84,23 @@ add_action('admin_menu', 'my_remove_admin_menus');
 add_theme_support('title-tag');
 add_theme_support('description');
 
-function my_remove_admin_menus(): void {
+function my_remove_admin_menus(): void
+{
     remove_menu_page('edit-comments.php');
 }
 
 // Removes from post and pages
 add_action('init', 'remove_comment_support', 100);
 
-function remove_comment_support(): void {
+function remove_comment_support(): void
+{
     remove_post_type_support('post', 'comments');
     remove_post_type_support('page', 'comments');
 }
 
 // Removes from admin bar
-function mytheme_admin_bar_render(): void {
+function mytheme_admin_bar_render(): void
+{
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('comments');
 }
@@ -119,7 +122,8 @@ if (function_exists('acf_add_options_page')) {
     acf_add_options_page();
 }
 
-function layout_get($content): void {
+function layout_get($content): void
+{
     foreach ($content as $layout) {
         foreach ($layout['layouts'] as $value) {
             // prevent acf automatic style enqueue
@@ -159,7 +163,7 @@ add_filter('upload_mimes', static function ($mimes) {
     return $mimes;
 });
 
-include "inc/breadcrumbs.php";
+// Miniatures
 include "inc/miniatures.php";
 
 // SMTP email settings
@@ -175,7 +179,8 @@ add_action('phpmailer_init', static function ($phpmailer) {
     $phpmailer->From = '';
 });
 
-function get_image_path($image): string {
+function get_image_path($image): string
+{
     if (is_array(wp_remote_get('http://localhost:5173/'))) {
         $hrefImages = "http://localhost:5173/resources/static/img/$image";
     } else {
