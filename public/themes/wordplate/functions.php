@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Register theme defaults.
-add_action('after_setup_theme', function () {
+add_action('after_setup_theme', static function () {
     show_admin_bar(false);
 
     add_theme_support('post-thumbnails');
@@ -18,7 +18,7 @@ add_action('after_setup_theme', function () {
 });
 
 // Register scripts and styles.
-add_action('wp_enqueue_scripts', function () {
+add_action('wp_enqueue_scripts', static function () {
     $manifestPath = get_theme_file_path('assets/manifest.json');
 
     if (wp_get_environment_type() === 'local' && is_array(wp_remote_get('http://localhost:5173/')) // is Vite.js running
@@ -33,7 +33,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 // Load scripts as modules.
-add_filter('script_loader_tag', function (string $tag, string $handle, string $src) {
+add_filter('script_loader_tag', static function (string $tag, string $handle, string $src) {
     if (in_array($handle, ['vite', 'wordplate'])) {
         return '<script type="module" src="' . esc_url($src) . '" defer></script>';
     }
@@ -42,12 +42,12 @@ add_filter('script_loader_tag', function (string $tag, string $handle, string $s
 }, 10, 3);
 
 // Remove admin menu items.
-add_action('admin_init', function () {
+add_action('admin_init', static function () {
     remove_menu_page('edit-comments.php'); // Comments
 });
 
 // Remove admin toolbar menu items.
-add_action('admin_bar_menu', function (WP_Admin_Bar $menu) {
+add_action('admin_bar_menu', static function (WP_Admin_Bar $menu) {
     $menu->remove_node('comments');  // Comments
     $menu->remove_node('customize'); // Customize
     $menu->remove_node('themes');    // Themes
@@ -56,14 +56,14 @@ add_action('admin_bar_menu', function (WP_Admin_Bar $menu) {
 }, 999);
 
 // Remove admin dashboard widgets.
-add_action('wp_dashboard_setup', function () {
+add_action('wp_dashboard_setup', static function () {
     global $wp_meta_boxes;
 
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Activity
 });
 
 // Add custom login form logo.
-add_action('login_head', function () {
+add_action('login_head', static function () {
     $url = get_theme_file_uri('favicon.svg');
     $width = 200;
 
@@ -107,7 +107,7 @@ add_action('wp_before_admin_bar_render', 'mytheme_admin_bar_render');
 add_theme_support('post-thumbnails');
 
 // Update CSS within in Admin
-add_action('admin_enqueue_scripts', function () {
+add_action('admin_enqueue_scripts', static function () {
     wp_enqueue_script('admin-styles', 'https://cdn.tailwindcss.com');
     wp_enqueue_script('admin-tailwind', get_template_directory_uri() . '/admin.js');
 });
@@ -133,7 +133,7 @@ function layout_get($content): void {
 }
 
 // Enlever les styles acf extended en front
-add_action('wp_enqueue_scripts', function () {
+add_action('wp_enqueue_scripts', static function () {
     if (function_exists('acf_get_fields')) :
         layout_get(acf_get_fields('group_63bd314b2704f'));
         layout_get(acf_get_fields('group_63b586eac7c60'));
@@ -153,7 +153,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 /* Autoriser les fichiers SVG */
-add_filter('upload_mimes', function ($mimes) {
+add_filter('upload_mimes', static function ($mimes) {
     $mimes['svg'] = 'image/svg+xml';
 
     return $mimes;
@@ -163,7 +163,7 @@ include "inc/breadcrumbs.php";
 include "inc/miniatures.php";
 
 // SMTP email settings
-add_action('phpmailer_init', function ($phpmailer) {
+add_action('phpmailer_init', static function ($phpmailer) {
     $phpmailer->isSMTP();
     $phpmailer->Host = 'smtp.gmail.com';
     $phpmailer->SMTPAuth = true;
