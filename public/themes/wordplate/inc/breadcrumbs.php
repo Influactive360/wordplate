@@ -1,6 +1,7 @@
 <?php
 
-function the_breadcrumb(): void {
+function the_breadcrumb()
+{
     echo '<ul id="crumbs">';
     if (!is_home()) :
         echo '<li><a href="';

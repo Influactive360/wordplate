@@ -25,7 +25,8 @@
         "wpackagist-plugin/acf-extended": "^0.8",
         "wpackagist-plugin/classic-editor": "^1.6",
         "wpackagist-plugin/clean-image-filenames": "^1.4",
-        "wpengine/advanced-custom-fields-pro": "^6"
+        "wpengine/advanced-custom-fields-pro": "^6",
+        "friendsofphp/php-cs-fixer": "^3.14.4"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
