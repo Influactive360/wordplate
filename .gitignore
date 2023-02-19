@@ -8,3 +8,4 @@
 /.vscode
 *.css
 *.css.map
+/.php-cs-fixer.cache
