@@ -123,17 +123,21 @@ function layout_get($content): void {
     foreach ($content as $layout) {
         foreach ($layout['layouts'] as $value) {
             // prevent acf automatic style enqueue
-            $handle = acf_slugify($layout['name']) . '-layout-' . acf_slugify($value['name']);
-            wp_register_style($handle, false);
-            wp_register_script($handle, false);
+            if (function_exists('acf_slugify')) :
+                $handle = acf_slugify($layout['name']) . '-layout-' . acf_slugify($value['name']);
+                wp_register_style($handle, false);
+                wp_register_script($handle, false);
+            endif;
         }
     }
 }
 
 // Enlever les styles acf extended en front
 add_action('wp_enqueue_scripts', function () {
-    layout_get(acf_get_fields('group_63bd314b2704f'));
-    layout_get(acf_get_fields('group_63b586eac7c60'));
+    if (function_exists('acf_get_fields')) :
+        layout_get(acf_get_fields('group_63bd314b2704f'));
+        layout_get(acf_get_fields('group_63b586eac7c60'));
+    endif;
     if (!is_user_logged_in()) {
         // CSS
         wp_register_style('admin-bar', false);

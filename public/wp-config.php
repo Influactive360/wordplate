@@ -72,7 +72,7 @@ define('DISALLOW_FILE_MODS', env('DISALLOW_FILE_MODS', true));
 // Cleanup WordPress image edits.
 define('IMAGE_EDIT_OVERWRITE', env('IMAGE_EDIT_OVERWRITE', true));
 
-// Disable technical issues emails.
+// Disable technical issus emails.
 define('WP_DISABLE_FATAL_ERROR_HANDLER', env('WP_DISABLE_FATAL_ERROR_HANDLER', false));
 
 // Limit the number of post revisions.

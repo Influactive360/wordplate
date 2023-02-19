@@ -10,6 +10,10 @@
  * License: MIT
  */
 
+if (WP_DEBUG && WP_DEBUG_DISPLAY) {
+    ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
+}
+
 if (is_blog_installed()) {
     new Roots\Bedrock\Autoloader();
 }
