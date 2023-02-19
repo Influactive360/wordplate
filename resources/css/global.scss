@@ -2,12 +2,12 @@
 /*
 @font-face {
 	font-family: "Helvetica Neue Condensed";
-	src: get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot");
-	src: get_theme_file_uri( "assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot") format("embedded-opentype"),
-	get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff2") format("woff2"),
-	get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff") format("woff"),
-	get_theme_file_uri(".assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.ttf") format("truetype"),
-	get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.svg#HelveticaNeueLTStd-HvCn") format("svg");
+	src: url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot");
+	src: url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot") format("embedded-opentype"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff2") format("woff2"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff") format("woff"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.ttf") format("truetype"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.svg#HelveticaNeueLTStd-HvCn") format("svg");
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
