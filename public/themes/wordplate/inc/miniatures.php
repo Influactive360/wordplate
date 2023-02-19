@@ -1,6 +1,8 @@
 <?php
-// Path de templates/ dans le thème
-$dir = get_template_directory() . "/layouts/";
+
+// Path de templates dans le thème
+$theme_dir = get_template_directory();
+$dir = "$theme_dir/layouts/";
 
 // Récupérer tous les fichiers et dossiers dans le répertoire
 $files = scandir($dir);

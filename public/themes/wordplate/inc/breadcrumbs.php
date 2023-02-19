@@ -16,7 +16,8 @@ function the_breadcrumb(): void {
                 the_title();
                 echo '</li>';
             }
-        } else if (is_page()) {
+        }
+        if (is_page()) {
             echo '<li class="active">';
             echo the_title();
             echo '</li>';
