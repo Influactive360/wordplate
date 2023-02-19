@@ -6,3 +6,5 @@
 /LocalValetDriver.php
 /.valetphprc
 /.vscode
+*.css
+*.css.map
