@@ -8,7 +8,6 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
-    "laravel-vite-plugin": "^0.7.4",
     "postcss-import": "^15.1.0",
     "postcss-import-ext-glob": "^2.1.1",
     "postcss-nested": "^6.0.0",

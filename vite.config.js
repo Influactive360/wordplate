@@ -1,5 +1,4 @@
 import {defineConfig} from 'vite';
-import laravel from 'laravel-vite-plugin';
 
 require('dotenv').config();
 export default defineConfig(() => ({
@@ -39,10 +38,6 @@ export default defineConfig(() => ({
           server.ws.send({type: 'full-reload', path: '*'});
         }
       },
-    },
-    laravel({
-      refresh: true,
-      input: 'resources/js/index.js',
-    })
+    }
   ]
 }));
