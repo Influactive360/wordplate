@@ -5,20 +5,30 @@
     "type": "project",
     "keywords": [
         "wordplate",
-        "wordpress"
+        "wordpress",
+        "composer",
+        "bedrock",
+        "wp",
+        "languages"
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "composer/installers": "^2.2",
+        "koodimonni-language/fr_fr": "*",
+        "koodimonni/composer-dropin-installer": "dev-master",
         "roots/bedrock-autoloader": "^1.0",
         "roots/wordpress": "^6.1.1",
         "roots/wp-password-bcrypt": "^1.1",
         "symfony/http-foundation": "^6.0",
         "vinkla/headache": "^2.4",
         "vlucas/phpdotenv": "^5.5",
-        "wpackagist-plugin/clean-image-filenames": "^1.4"
+        "wpackagist-plugin/acf-extended": "^0.8",
+        "wpackagist-plugin/classic-editor": "^1.6",
+        "wpackagist-plugin/clean-image-filenames": "^1.4",
+        "wpengine/advanced-custom-fields-pro": "^6"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "symfony/var-dumper": "^6.0"
     },
     "repositories": [
@@ -28,6 +38,19 @@
             "only": [
                 "wpackagist-plugin/*",
                 "wpackagist-theme/*"
+            ]
+        },
+        {
+            "type": "composer",
+            "url": "https://connect.advancedcustomfields.com"
+        },
+        {
+            "type": "composer",
+            "url": "https://wp-languages.github.io",
+            "only": [
+                "koodimonni-language/*",
+                "koodimonni-plugin-language/*",
+                "koodimonni-theme-language/*"
             ]
         }
     ],
@@ -39,7 +62,8 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
-            "roots/wordpress-core-installer": true
+            "roots/wordpress-core-installer": true,
+            "koodimonni/composer-dropin-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
@@ -59,7 +83,18 @@
                 "type:wordpress-theme"
             ]
         },
-        "wordpress-install-dir": "public/wordpress"
+        "wordpress-install-dir": "public/wordpress",
+        "dropin-paths": {
+            "public/languages/": [
+                "type:wordpress-language"
+            ],
+            "public/languages/plugins/": [
+                "vendor:koodimonni-plugin-language"
+            ],
+            "public/languages/themes/": [
+                "vendor:koodimonni-theme-language"
+            ]
+        }
     },
     "scripts": {
         "post-root-package-install": [

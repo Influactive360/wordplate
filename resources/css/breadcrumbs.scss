@@ -1,0 +1,17 @@
+/* BREADCRUMBS */
+#breadcrumb {
+  ul#crumbs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+
+      a {
+      }
+
+      &.active {
+      }
+    }
+  }
+}

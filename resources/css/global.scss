@@ -1,0 +1,180 @@
+/* GLOBAL */
+/*
+@font-face {
+	font-family: "Helvetica Neue Condensed";
+	src: get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot");
+	src: get_theme_file_uri( "assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot") format("embedded-opentype"),
+	get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff2") format("woff2"),
+	get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff") format("woff"),
+	get_theme_file_uri(".assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.ttf") format("truetype"),
+	get_theme_file_uri("assets/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.svg#HelveticaNeueLTStd-HvCn") format("svg");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+$Helvetica_Neue_Condensed: "Helvetica Neue Condensed", "Helvetica Neue", "Helvetica", sans-serif;
+$Helvetica_Neue: "Helvetica Neue", "Helvetica", sans-serif;
+*/
+
+// Début du CSS
+/* COULEURS */
+$blanc: #FFFFFF;
+
+/* TRANSITION */
+.no-transition {
+  * {
+    transition: none !important;
+  }
+}
+
+html {
+  body.wp-admin {
+    #poststuff .-preview {
+      section {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        img {
+          margin: 0;
+          padding: 0;
+          text-decoration: none;
+
+          a > * {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  body:not(.wp-admin),
+  #poststuff .-preview {
+    letter-spacing: 0;
+
+    section,
+    div {
+      position: relative;
+      z-index: 1;
+
+      h1 {
+        @media screen and (max-width: 1024px) {
+        }
+      }
+
+      h2 {
+
+        @media screen and (max-width: 1024px) {
+        }
+      }
+
+      h3 {
+
+        @media screen and (max-width: 1024px) {
+        }
+      }
+
+      h4 {
+
+        @media screen and (max-width: 1024px) {
+        }
+      }
+    }
+
+    p,
+    ul li {
+
+      @media (max-width: 1000px) {
+      }
+    }
+
+    ul li {
+      list-style: inside;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    p a {
+      text-decoration: underline;
+    }
+
+    button,
+    input[type='submit'] {
+
+      > *,
+      &.button {
+        @media (max-width: 1000px) {
+        }
+      }
+
+      &.bouton-general,
+      &.bouton-fonce {
+        > * {
+        }
+      }
+
+      &.bouton_inverse {
+
+        > * {
+        }
+      }
+
+      &:hover {
+
+        > * {
+        }
+
+        &.bouton-general {
+          > * {
+          }
+        }
+
+        &.bouton_inverse {
+          > * {
+          }
+        }
+
+        &.bouton_inverse {
+          > * {
+          }
+        }
+      }
+    }
+
+    /* CONFIG TAILWIND */
+    $padding: 5vw;
+
+    .tres-grand,
+    .grand,
+    .moyen,
+    .petit,
+    .tres-petit,
+    .moyen-grand,
+    .moyen-petit {
+      margin: auto;
+      padding-right: $padding;
+      padding-left: $padding;
+    }
+
+    .petit {
+      max-width: calc(1290px + $padding * 2);
+    }
+
+    .moyen {
+      max-width: calc(1360px + $padding * 2);
+    }
+
+    .grand {
+      max-width: calc(1500px + $padding * 2);
+    }
+  }
+}

@@ -6,3 +6,4 @@ plugins/*
 upgrade
 uploads
 wordpress
+!/themes/wordplate/style.css

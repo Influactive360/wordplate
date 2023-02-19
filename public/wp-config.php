@@ -8,7 +8,7 @@ use Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
 // Load the environment variables.
-Dotenv::createImmutable(realpath(__DIR__ . '/../'))->safeLoad();
+Dotenv::createImmutable(dirname(__DIR__) . '/')->safeLoad();
 
 // Set the environment type.
 define('WP_ENVIRONMENT_TYPE', env('WP_ENVIRONMENT_TYPE', 'production'));
@@ -43,7 +43,7 @@ define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
 define('NONCE_SALT', env('NONCE_SALT'));
 
 // Detect HTTPS behind a reverse proxy or a load balancer.
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
     $_SERVER['HTTPS'] = 'on';
 }
 

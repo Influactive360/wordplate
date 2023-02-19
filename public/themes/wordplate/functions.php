@@ -1,5 +1,10 @@
 <?php
 
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 // Register theme defaults.
 add_action('after_setup_theme', function () {
     show_admin_bar(false);
@@ -16,14 +21,12 @@ add_action('after_setup_theme', function () {
 add_action('wp_enqueue_scripts', function () {
     $manifestPath = get_theme_file_path('assets/manifest.json');
 
-    if (
-        wp_get_environment_type() === 'local' &&
-        is_array(wp_remote_get('http://localhost:5173/')) // is Vite.js running
+    if (wp_get_environment_type() === 'local' && is_array(wp_remote_get('http://localhost:5173/')) // is Vite.js running
     ) {
         wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
         wp_enqueue_script('wordplate', 'http://localhost:5173/resources/js/index.js', [], null);
-    } elseif (file_exists($manifestPath)) {
-        $manifest = json_decode(file_get_contents($manifestPath), true);
+    } else if (file_exists($manifestPath)) {
+        $manifest = json_decode(file_get_contents($manifestPath), true, 512, JSON_THROW_ON_ERROR);
         wp_enqueue_script('wordplate', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['file']), [], null);
         wp_enqueue_style('wordplate', get_theme_file_uri('assets/' . $manifest['resources/js/index.css']['file']), [], null);
     }
@@ -41,39 +44,22 @@ add_filter('script_loader_tag', function (string $tag, string $handle, string $s
 // Remove admin menu items.
 add_action('admin_init', function () {
     remove_menu_page('edit-comments.php'); // Comments
-    // remove_menu_page('edit.php?post_type=page'); // Pages
-    remove_menu_page('edit.php'); // Posts
-    remove_menu_page('index.php'); // Dashboard
-    // remove_menu_page('upload.php'); // Media
 });
 
 // Remove admin toolbar menu items.
 add_action('admin_bar_menu', function (WP_Admin_Bar $menu) {
-    $menu->remove_node('comments'); // Comments
+    $menu->remove_node('comments');  // Comments
     $menu->remove_node('customize'); // Customize
-    $menu->remove_node('dashboard'); // Dashboard
-    $menu->remove_node('edit'); // Edit
-    $menu->remove_node('menus'); // Menus
-    $menu->remove_node('new-content'); // New Content
-    $menu->remove_node('search'); // Search
-    // $menu->remove_node('site-name'); // Site Name
-    $menu->remove_node('themes'); // Themes
-    $menu->remove_node('updates'); // Updates
-    $menu->remove_node('view-site'); // Visit Site
-    $menu->remove_node('view'); // View
-    $menu->remove_node('widgets'); // Widgets
-    $menu->remove_node('wp-logo'); // WordPress Logo
+    $menu->remove_node('themes');    // Themes
+    $menu->remove_node('updates');   // Updates
+    $menu->remove_node('wp-logo');   // WordPress Logo
 }, 999);
 
 // Remove admin dashboard widgets.
 add_action('wp_dashboard_setup', function () {
     global $wp_meta_boxes;
 
-    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']); // Activity
-    // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']); // At a Glance
-    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health']); // Site Health Status
-    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']); // WordPress Events and News
-    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Quick Draft
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Activity
 });
 
 // Add custom login form logo.
@@ -82,14 +68,115 @@ add_action('login_head', function () {
     $width = 200;
 
     $styles = [
-        sprintf('background-image: url(%s);', $url),
-        sprintf('width: %dpx;', $width),
-        'background-position: center;',
+        sprintf('background-image: url(%s);', $url), sprintf('width: %dpx;', $width), 'background-position: center;',
         'background-size: contain;',
     ];
 
-    echo sprintf(
-        '<style> .login h1 a { %s } </style>',
-        implode('', $styles)
-    );
+    echo sprintf('<style> .login h1 a { %s } </style>', implode('', $styles));
 });
+
+/* Custom functions.php commence ici */
+
+add_theme_support('menus');
+
+add_action('admin_menu', 'my_remove_admin_menus');
+
+add_theme_support('title-tag');
+add_theme_support('description');
+
+function my_remove_admin_menus(): void {
+    remove_menu_page('edit-comments.php');
+}
+
+// Removes from post and pages
+add_action('init', 'remove_comment_support', 100);
+
+function remove_comment_support(): void {
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
+}
+
+// Removes from admin bar
+function mytheme_admin_bar_render(): void {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+}
+
+add_action('wp_before_admin_bar_render', 'mytheme_admin_bar_render');
+
+add_theme_support('post-thumbnails');
+
+// Update CSS within in Admin
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_script('admin-styles', 'https://cdn.tailwindcss.com');
+    wp_enqueue_script('admin-tailwind', get_template_directory_uri() . '/admin.js');
+});
+
+// ADD image size
+
+// add options page
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page();
+}
+
+function layout_get($content): void {
+    foreach ($content as $layout) {
+        foreach ($layout['layouts'] as $value) {
+            // prevent acf automatic style enqueue
+            $handle = acf_slugify($layout['name']) . '-layout-' . acf_slugify($value['name']);
+            wp_register_style($handle, false);
+            wp_register_script($handle, false);
+        }
+    }
+}
+
+// Enlever les styles acf extended en front
+add_action('wp_enqueue_scripts', function () {
+    layout_get(acf_get_fields('group_63bd314b2704f'));
+    layout_get(acf_get_fields('group_63b586eac7c60'));
+    if (!is_user_logged_in()) {
+        // CSS
+        wp_register_style('admin-bar', false);
+        wp_register_style('classic-theme-styles', false);
+        wp_register_style('wp-block-library', false);
+        wp_deregister_style('wp-block-library');
+        wp_deregister_style('admin-bar');
+        wp_deregister_style('classic-theme-styles');
+        // Javascript
+        wp_register_script('wp-emoji', false);
+        wp_deregister_script('wp-emoji');
+    }
+});
+
+/* Autoriser les fichiers SVG */
+add_filter('upload_mimes', function ($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+
+    return $mimes;
+});
+
+include "inc/breadcrumbs.php";
+include "inc/miniatures.php";
+
+// SMTP email settings
+add_action('phpmailer_init', function ($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.gmail.com';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = '465';
+    $phpmailer->Username = '';
+    $phpmailer->Password = '';
+    $phpmailer->SMTPSecure = 'ssl';
+    $phpmailer->FromName = 'Template';
+    $phpmailer->From = '';
+});
+
+function get_image_path($image): string {
+    if (is_array(wp_remote_get('http://localhost:5173/'))) {
+        $hrefImages = "http://localhost:5173/resources/static/img/$image";
+    } else {
+        $hrefImages = get_theme_file_uri("assets/img/$image");
+    }
+
+    return $hrefImages;
+}

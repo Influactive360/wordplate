@@ -1,0 +1,11 @@
+// import tailwind (à enlever si besoin)
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// assets globaux
+@import './global.scss';
+@import './header.scss';
+@import './footer.scss';
+@import './single.scss';
+@import './breadcrumbs.scss';
