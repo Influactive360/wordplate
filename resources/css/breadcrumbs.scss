@@ -1,19 +1,19 @@
-@use 'global' as g;
+@use 'var';
 
 /* BREADCRUMBS */
 #breadcrumb {
-  ul#crumbs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    ul#crumbs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
-    li {
+        li {
 
-      a {
-      }
+            a {
+            }
 
-      &.active {
-      }
+            &.active {
+            }
+        }
     }
-  }
 }

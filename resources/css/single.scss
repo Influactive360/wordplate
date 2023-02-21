@@ -1,7 +1,7 @@
-@use 'global' as g;
+@use 'var';
 
 /* ARTICLE */
 html body:not(.wp-admin).single-post, html #poststuff .-preview {
-  article {
-  }
+    article {
+    }
 }
