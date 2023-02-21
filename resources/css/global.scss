@@ -1,4 +1,22 @@
 /* GLOBAL */
+/*
+@font-face {
+	font-family: "Helvetica Neue Condensed";
+	src: url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot");
+	src: url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.eot") format("embedded-opentype"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff2") format("woff2"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.woff") format("woff"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.ttf") format("truetype"),
+	url("../static/fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.svg#HelveticaNeueLTStd-HvCn") format("svg");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+$Helvetica_Neue_Condensed: "Helvetica Neue Condensed", "Helvetica Neue", "Helvetica", sans-serif;
+$Helvetica_Neue: "Helvetica Neue", "Helvetica", sans-serif;
+*/
+
 /* TRANSITION */
 .no-transition {
     * {
@@ -126,33 +144,6 @@ html {
                     }
                 }
             }
-        }
-
-        /* CONFIG TAILWIND */
-        $padding: 5vw;
-
-        .tres-grand,
-        .grand,
-        .moyen,
-        .petit,
-        .tres-petit,
-        .moyen-grand,
-        .moyen-petit {
-            margin: auto;
-            padding-right: $padding;
-            padding-left: $padding;
-        }
-
-        .petit {
-            max-width: calc(1290px + $padding * 2);
-        }
-
-        .moyen {
-            max-width: calc(1360px + $padding * 2);
-        }
-
-        .grand {
-            max-width: calc(1500px + $padding * 2);
         }
     }
 }

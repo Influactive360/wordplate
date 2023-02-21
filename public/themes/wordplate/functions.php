@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', static function () {
         wp_enqueue_script('vite', 'http://localhost:5173/@vite/client', [], null);
         wp_enqueue_script('wordplate', 'http://localhost:5173/resources/js/index.js', [], null);
     }
-    if (file_exists($manifestPath)) {
+    if (file_exists($manifestPath) && (wp_get_environment_type() === 'production' || !is_array(wp_remote_get('http://localhost:5173/')))) {
         $manifest = json_decode(file_get_contents($manifestPath), true, 512, JSON_THROW_ON_ERROR);
         wp_enqueue_script('wordplate', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['file']), [], null);
         wp_enqueue_style('wordplate', get_theme_file_uri('assets/' . $manifest['resources/js/index.css']['file']), [], null);
