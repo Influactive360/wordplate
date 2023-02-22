@@ -101,17 +101,10 @@ html {
         }
 
         button,
-        input[type='submit'] {
+        input[type='submit'], .bouton {
 
-            > *,
-            &.button {
+            > * {
                 @media (max-width: 1000px) {
-                }
-            }
-
-            &.bouton-general,
-            &.bouton-fonce {
-                > * {
                 }
             }
 
@@ -124,16 +117,6 @@ html {
             &:hover {
 
                 > * {
-                }
-
-                &.bouton-general {
-                    > * {
-                    }
-                }
-
-                &.bouton_inverse {
-                    > * {
-                    }
                 }
 
                 &.bouton_inverse {
