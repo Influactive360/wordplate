@@ -1,4 +1,7 @@
-// Début du CSS
+/* FONTS */
+$font: Arial, sans-serif;
+$texte: 16px;
+
 /* COULEURS */
 $blanc: #FFFFFF;
 
@@ -25,4 +28,13 @@ $blanc: #FFFFFF;
     margin: auto;
     padding-right: $padding;
     padding-left: $padding;
+}
+
+@mixin font($taille, $hauteur, $poids: 400, $transform: normal, $couleur: $texte, $align: left) {
+    font-size: $taille;
+    line-height: $hauteur;
+    font-weight: $poids;
+    color: $couleur;
+    text-align: $align;
+    text-transform: $transform;
 }
