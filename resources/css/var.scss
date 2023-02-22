@@ -38,3 +38,10 @@ $blanc: #FFFFFF;
     text-align: $align;
     text-transform: $transform;
 }
+
+@mixin background($image, $position: center, $repeat: no-repeat, $size: cover) {
+    background-image: url('../static/img/' + $image);
+    background-position: $position;
+    background-repeat: $repeat;
+    background-size: $size;
+}
