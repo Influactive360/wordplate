@@ -17,7 +17,7 @@
         "vite": "^4.1.4"
     },
     "devDependencies": {
-        "autoprefixer": "^10.4.13",
+        "autoprefixer": "^10.4.14",
         "postcss": "^8.4.21",
         "replace-in-file": "^6.3.5",
         "tailwindcss": "^3.2.7"
