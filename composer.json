@@ -16,6 +16,7 @@
         "composer/installers": "^2.2",
         "koodimonni-language/fr_fr": "^6.1.1",
         "koodimonni/composer-dropin-installer": "dev-master",
+        "laravel/valet": "^4.0",
         "roots/bedrock-autoloader": "^1.0",
         "roots/wordpress": "^6.1.1",
         "roots/wp-password-bcrypt": "^1.1",
@@ -25,12 +26,12 @@
         "wpackagist-plugin/acf-extended": "^0.8",
         "wpackagist-plugin/classic-editor": "^1.6",
         "wpackagist-plugin/clean-image-filenames": "^1.4",
-        "wpengine/advanced-custom-fields-pro": "^6",
-        "friendsofphp/php-cs-fixer": "^3.14.4"
+        "wpengine/advanced-custom-fields-pro": "^6"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
-        "symfony/var-dumper": "^6.0"
+        "symfony/var-dumper": "^6.0",
+        "friendsofphp/php-cs-fixer": "^3.14.4"
     },
     "repositories": [
         {
