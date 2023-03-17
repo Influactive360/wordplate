@@ -340,18 +340,20 @@ our [custom valet driver](https://laravel.com/docs/10.x/valet#custom-valet-drive
 ```php
 <?php
 
+namespace Valet\Drivers\Custom;
+
 use Valet\Drivers\BasicValetDriver;
 
 class WordPlateValetDriver extends BasicValetDriver
 {
-    public function serves($sitePath, $siteName, $uri)
+    public function serves(string $sitePath, string $siteName, string $uri): bool
     {
         return is_dir($sitePath . '/public/wordpress');
     }
 
-    public function isStaticFile($sitePath, $siteName, $uri)
+    public function isStaticFile(string $sitePath, string $siteName, string $url)
     {
-        $staticFilePath = $sitePath . '/public' . $uri;
+        $staticFilePath = $sitePath . '/public' . $url;
 
         if ($this->isActualFile($staticFilePath)) {
             return $staticFilePath;
@@ -360,7 +362,7 @@ class WordPlateValetDriver extends BasicValetDriver
         return false;
     }
 
-    public function frontControllerPath($sitePath, $siteName, $uri)
+    public function frontControllerPath(string $sitePath, string $siteName, string $uri): ?string
     {
         return parent::frontControllerPath(
             $sitePath . '/public',
@@ -369,7 +371,7 @@ class WordPlateValetDriver extends BasicValetDriver
         );
     }
 
-    private function forceTrailingSlash($uri)
+    private function forceTrailingSlash(string $uri)
     {
         if (substr($uri, -1 * strlen('/wordpress/wp-admin')) === '/wordpress/wp-admin') {
             header('Location: ' . $uri . '/');
@@ -379,7 +381,6 @@ class WordPlateValetDriver extends BasicValetDriver
         return $uri;
     }
 }
-
 ```
 
 </details>
