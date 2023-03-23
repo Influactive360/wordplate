@@ -20,7 +20,7 @@
         "roots/wordpress": "^6.1.1",
         "roots/wp-password-bcrypt": "^1.1",
         "symfony/http-foundation": "^6.0",
-        "vinkla/headache": "^2.4",
+        "vinkla/headache": "^3.0",
         "vlucas/phpdotenv": "^5.5",
         "wpackagist-plugin/acf-extended": "^0.8",
         "wpackagist-plugin/classic-editor": "^1.6",
