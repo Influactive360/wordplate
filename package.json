@@ -26,6 +26,6 @@
         "eslint-plugin-promise": "^6.1.1",
         "postcss": "^8.4.23",
         "replace-in-file": "^6.3.5",
-        "tailwindcss": "^3.3.1"
+        "tailwindcss": "^3.3.2"
     }
 }
