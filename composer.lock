@@ -1828,20 +1828,20 @@
         },
         {
             "name": "vinkla/headache",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vinkla/headache.git",
-                "reference": "97aeeec555c1272645e9c2dbb8ba0f7501917bab"
+                "reference": "2d40c0e2f100266eebd294782a705ed2c1a45d73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vinkla/headache/zipball/97aeeec555c1272645e9c2dbb8ba0f7501917bab",
-                "reference": "97aeeec555c1272645e9c2dbb8ba0f7501917bab",
+                "url": "https://api.github.com/repos/vinkla/headache/zipball/2d40c0e2f100266eebd294782a705ed2c1a45d73",
+                "reference": "2d40c0e2f100266eebd294782a705ed2c1a45d73",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.0"
+                "php": "^8.1"
             },
             "type": "wordpress-muplugin",
             "notification-url": "https://packagist.org/downloads/",
@@ -1864,9 +1864,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vinkla/headache/issues",
-                "source": "https://github.com/vinkla/headache/tree/3.0.2"
+                "source": "https://github.com/vinkla/headache/tree/3.1.0"
             },
-            "time": "2023-03-22T10:12:25+00:00"
+            "time": "2023-05-03T06:12:20+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
