@@ -215,10 +215,10 @@
         },
         {
             "name": "koodimonni-language/fr_fr",
-            "version": "6.2",
+            "version": "6.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/core/6.2/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/core/6.2.2/fr_FR.zip"
             },
             "require": {
                 "koodimonni-plugin-language/advanced-rich-text-tools-fr_fr": "*",
@@ -244,6 +244,7 @@
                 "koodimonni-plugin-language/wp-autoupdates-fr_fr": "*",
                 "koodimonni-plugin-language/wp-jquery-update-test-fr_fr": "*",
                 "koodimonni-plugin-language/wpcat2tag-importer-fr_fr": "*",
+                "koodimonni-theme-language/stacks-fr_fr": "*",
                 "koodimonni-theme-language/tt1-blocks-fr_fr": "*",
                 "koodimonni-theme-language/twentyeleven-fr_fr": "*",
                 "koodimonni-theme-language/twentyfifteen-fr_fr": "*",
@@ -423,10 +424,10 @@
         },
         {
             "name": "koodimonni-plugin-language/health-check-fr_fr",
-            "version": "1.5.1",
+            "version": "1.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/health-check/1.5.1/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/health-check/1.6.0/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -480,10 +481,10 @@
         },
         {
             "name": "koodimonni-plugin-language/movabletype-importer-fr_fr",
-            "version": "0.4",
+            "version": "0.6",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/movabletype-importer/0.4/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/movabletype-importer/0.6/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -594,10 +595,10 @@
         },
         {
             "name": "koodimonni-plugin-language/tumblr-importer-fr_fr",
-            "version": "1.0",
+            "version": "1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/tumblr-importer/1.0/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/tumblr-importer/1.1/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -613,10 +614,10 @@
         },
         {
             "name": "koodimonni-plugin-language/woocommerce-fr_fr",
-            "version": "7.5.1",
+            "version": "7.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/7.5.1/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/7.7.0/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -632,10 +633,10 @@
         },
         {
             "name": "koodimonni-plugin-language/wordpress-importer-fr_fr",
-            "version": "0.8",
+            "version": "0.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/wordpress-importer/0.8/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/wordpress-importer/0.8.1/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -689,10 +690,10 @@
         },
         {
             "name": "koodimonni-plugin-language/wpcat2tag-importer-fr_fr",
-            "version": "0.6",
+            "version": "0.6.1",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/wpcat2tag-importer/0.6/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/wpcat2tag-importer/0.6.1/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -704,6 +705,25 @@
                 "WordPress",
                 "fr_fr",
                 "wpcat2tag-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/stacks-fr_fr",
+            "version": "0.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/stacks/0.0.3/fr_FR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress stacks translations for French (France) - fr_fr",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "fr_fr",
+                "stacks"
             ]
         },
         {
@@ -936,10 +956,10 @@
         },
         {
             "name": "koodimonni-theme-language/twentytwentythree-fr_fr",
-            "version": "1.0",
+            "version": "1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/theme/twentytwentythree/1.0/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwentythree/1.1/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
