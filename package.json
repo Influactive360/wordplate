@@ -19,7 +19,7 @@
     "devDependencies": {
         "@microsoft/eslint-formatter-sarif": "^3.0.0",
         "autoprefixer": "^10.4.14",
-        "eslint": "^8.46.0",
+        "eslint": "^8.47.0",
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.28.0",
         "eslint-plugin-n": "^16.0.1",
