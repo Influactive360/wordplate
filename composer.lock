@@ -215,10 +215,10 @@
         },
         {
             "name": "koodimonni-language/fr_fr",
-            "version": "6.3",
+            "version": "6.3.2",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/core/6.3/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/core/6.3.2/fr_FR.zip"
             },
             "require": {
                 "koodimonni-plugin-language/advanced-rich-text-tools-fr_fr": "*",
@@ -234,6 +234,7 @@
                 "koodimonni-plugin-language/livejournal-importer-fr_fr": "*",
                 "koodimonni-plugin-language/movabletype-importer-fr_fr": "*",
                 "koodimonni-plugin-language/opml-importer-fr_fr": "*",
+                "koodimonni-plugin-language/performant-translations-fr_fr": "*",
                 "koodimonni-plugin-language/press-this-fr_fr": "*",
                 "koodimonni-plugin-language/rss-importer-fr_fr": "*",
                 "koodimonni-plugin-language/stp-importer-fr_fr": "*",
@@ -291,10 +292,10 @@
         },
         {
             "name": "koodimonni-plugin-language/akismet-fr_fr",
-            "version": "5.2",
+            "version": "5.3",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/akismet/5.2/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/akismet/5.3/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -518,6 +519,25 @@
             ]
         },
         {
+            "name": "koodimonni-plugin-language/performant-translations-fr_fr",
+            "version": "1.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/performant-translations/1.0.5/fr_FR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress performant-translations translations for French (France) - fr_fr",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "fr_fr",
+                "performant-translations"
+            ]
+        },
+        {
             "name": "koodimonni-plugin-language/press-this-fr_fr",
             "version": "1.1.1",
             "dist": {
@@ -614,10 +634,10 @@
         },
         {
             "name": "koodimonni-plugin-language/woocommerce-fr_fr",
-            "version": "8.0.0",
+            "version": "8.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/8.0.0/fr_FR.zip"
+                "url": "https://downloads.wordpress.org/translation/plugin/woocommerce/8.2.0/fr_FR.zip"
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
